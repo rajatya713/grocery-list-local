@@ -1,4 +1,10 @@
 //speech recognition
+const counter_line = document.querySelector("#counter")
+const mic_off_id = document.getElementById("mic-off")
+const mic_on_id = document.getElementById("mic-on")
+const inputfield_el = document.querySelector("#input-field")
+
+
 if ("webkitSpeechRecognition" in window) {
 
     // Initialize webkitSpeechRecognition
@@ -16,19 +22,21 @@ if ("webkitSpeechRecognition" in window) {
     speechRecognition.onstart = () => {
 
         // Show the Status Element
-        document.querySelector("#counter").innerHTML = "listening...";
+        counter_line.innerHTML = "listening...";
        
     };
     speechRecognition.onerror = () => {
 
         // Hide the Status Element
-        document.querySelector("#counter").innerHTML = "Error!! while listening";
+        counter_line.innerHTML = "Error!! while listening";
     };
 
     speechRecognition.onend = () => {
 
         // Hide the Status Element
-        document.querySelector("#counter").innerHTML = "stopped";
+        counter_line.innerHTML = "stopped";
+        mic_off_id.style.display = "none";
+        mic_on_id.style.display = "block";
     };
 
     speechRecognition.onresult = (event) => {
@@ -37,23 +45,24 @@ if ("webkitSpeechRecognition" in window) {
 
 
         // Set the Final transcript.
-        document.querySelector("#input-field").value = final_transcript;
+        inputfield_el.value = final_transcript;
     };
     
-    document.querySelector("#mic-on").onclick = () => {
+    mic_on_id.onclick = () => {
 
         // Start the Speech Recognition
         final_transcript = "";
         speechRecognition.start();
-        document.getElementById("mic-on").style.display = "none";
-        document.getElementById("mic-off").style.display = "block";
+        mic_on_id.style.display = "none";
+        mic_off_id.style.display = "block";
 
     };
 
-    document.querySelector("#mic-off").onclick = () => {
-        document.getElementById("mic-off").style.display = "none";
-        document.getElementById("mic-on").style.display = "block";
+    mic_off_id.onclick = () => {
+        mic_off_id.style.display = "none";
+        mic_on_id.style.display = "block";
         speechRecognition.stop();
+        counter_line.innerHTML = "stopped";
 
     }
 
