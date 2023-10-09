@@ -1,4 +1,4 @@
-function addItem() {
+document.querySelector("#add-button").onclick = () => {
     const taskInput = document.getElementById("input-field").value;
 
     if (taskInput.trim() === "") {
@@ -50,6 +50,11 @@ function displayTasks() {
         taskList.appendChild(listItem);
     });
 }
+
+document.querySelector("#clear-input-field").onclick = () => {
+    document.getElementById("input-field").value = ""
+
+};
 
 // Display existing tasks on page load
 displayTasks();

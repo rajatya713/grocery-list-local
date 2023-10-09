@@ -28,7 +28,7 @@ if ("webkitSpeechRecognition" in window) {
     speechRecognition.onend = () => {
 
         // Hide the Status Element
-        document.querySelector("#counter").innerHTML = "stopped..";
+        document.querySelector("#counter").innerHTML = "stopped";
     };
 
     speechRecognition.onresult = (event) => {

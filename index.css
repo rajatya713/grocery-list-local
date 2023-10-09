@@ -4,6 +4,8 @@ body {
     background-color: #e5d9c9;
     font-family: 'Rubik', sans-serif;
     user-select: none;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 #container {
@@ -77,4 +79,49 @@ ul li {
 ul li:hover {
     background-color: #486a04;
     cursor: pointer;
+}
+
+/* MIC */
+#mic-on {
+    background: rgba(5, 48, 14, 0.825);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-left: -25px;
+    
+    height: 2rem;
+   
+}
+#mic-off{
+        background: rgba(5, 48, 14, 0.825);
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: 40px;
+            margin-left: -25px;
+            display:none;
+            height: 2rem;
+
+}
+#clear-input-field{
+        background: rgb(248, 240, 240);
+        border-radius: 50%;
+        cursor: pointer;
+
+        margin-top: 40px;
+        margin-left: -30px;
+        /* float: right; */
+        height: 2rem;
+
+}
+
+.input-text-mic{
+    width:100%;
+    display:flex;
+    align-items:center;
+    column-gap: 40px;
+    
+}
+.input-text-mic p{
+    margin:40px 0 0 -20px;
+
 }
